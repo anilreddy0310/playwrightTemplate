@@ -1,6 +1,6 @@
 import settings from "../settings";
 import { users } from "./details/userDetails";
-import { customTest } from "../utils/sessionutils";
+import { customTest } from "../utils/sessionUtils";
 
 customTest.describe.parallel("Session storage for Admin, CRA user", () => {
   customTest(
