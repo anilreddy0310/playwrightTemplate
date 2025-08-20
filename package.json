@@ -1,0 +1,42 @@
+{
+  "name": "e2e",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "check": "pnpm run lint",
+    "lint": "eslint src && prettier --check src",
+    "format": "eslint src --fix --quiet --report-unused-disable-directives || true && prettier --write src tools specs",
+    "login": "tsx tools/login.ts",
+    "prepare:har": "tsx tools/prepare-har.ts",
+    "build": "tsc",
+    "generate:tests:fetch": "tsx tools/generate-tests-fetch.ts && prettier -w specs",
+    "test": "pnpm exec playwright test --tsconfig ./tsconfig.json --ui -c ./playwright.config.ts",
+    "test:ci": "pnpm exec playwright test --tsconfig ./tsconfig.json -c ./playwright.config.ts",
+    "test:publish": "tsx tools/publish-playwright.ts"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.48.1",
+    "@types/jest": "^29.5.12",
+    "@types/lodash.intersection": "^4.4.9",
+    "@types/lodash.uniqby": "^4.7.9",
+    "@types/node": "^22.5.2",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "axios": "^1.7.2",
+    "cheerio": "1.0.0-rc.12",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "lodash.intersection": "^4.4.0",
+    "lodash.uniqby": "^4.7.0",
+    "openapi-typescript": "^7.4.3",
+    "typescript": "^5.7.2",
+    "path": "^0.12.7",
+    "playwright-s3-reporter": "v1.4.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.0.0",
+    "tsx": "^4.16.2",
+    "vitest": "^2.0.3"
+  }
+}
